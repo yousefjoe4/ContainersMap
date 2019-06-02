@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "821861890233",
+    "firebase_url": "https://containers-maps.firebaseio.com",
+    "project_id": "containers-maps",
+    "storage_bucket": "containers-maps.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:821861890233:android:e11b1cf5a3f69ff8",
+        "android_client_info": {
+          "package_name": "yousef.joe.containersmaps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "821861890233-ad7q4dcsmjc2ga5odd6vtquieabjn9b6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_XNAjhI9zyd33bJdGC4Zn4x82KOu-TZw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "821861890233-ad7q4dcsmjc2ga5odd6vtquieabjn9b6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
