@@ -1,0 +1,27 @@
+-- Merging decision tree log ---
+manifest
+ADDED from E:\Users\youse\AndroidStudioProjects\ContainesMap\clusteringlibrary\AndroidManifest.xml:2:1-11:12
+INJECTED from E:\Users\youse\AndroidStudioProjects\ContainesMap\clusteringlibrary\AndroidManifest.xml:2:1-11:12
+INJECTED from E:\Users\youse\AndroidStudioProjects\ContainesMap\clusteringlibrary\AndroidManifest.xml:2:1-11:12
+	package
+		ADDED from E:\Users\youse\AndroidStudioProjects\ContainesMap\clusteringlibrary\AndroidManifest.xml:3:11-44
+		INJECTED from E:\Users\youse\AndroidStudioProjects\ContainesMap\clusteringlibrary\AndroidManifest.xml
+		INJECTED from E:\Users\youse\AndroidStudioProjects\ContainesMap\clusteringlibrary\AndroidManifest.xml
+	xmlns:android
+		ADDED from E:\Users\youse\AndroidStudioProjects\ContainesMap\clusteringlibrary\AndroidManifest.xml:2:11-69
+application
+ADDED from E:\Users\youse\AndroidStudioProjects\ContainesMap\clusteringlibrary\AndroidManifest.xml:5:5-10:19
+meta-data#com.google.android.gms.version
+ADDED from E:\Users\youse\AndroidStudioProjects\ContainesMap\clusteringlibrary\AndroidManifest.xml:6:9-8:73
+	android:value
+		ADDED from E:\Users\youse\AndroidStudioProjects\ContainesMap\clusteringlibrary\AndroidManifest.xml:8:17-70
+	android:name
+		ADDED from E:\Users\youse\AndroidStudioProjects\ContainesMap\clusteringlibrary\AndroidManifest.xml:7:17-62
+uses-sdk
+INJECTED from E:\Users\youse\AndroidStudioProjects\ContainesMap\clusteringlibrary\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\Users\youse\AndroidStudioProjects\ContainesMap\clusteringlibrary\AndroidManifest.xml
+INJECTED from E:\Users\youse\AndroidStudioProjects\ContainesMap\clusteringlibrary\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from E:\Users\youse\AndroidStudioProjects\ContainesMap\clusteringlibrary\AndroidManifest.xml
+		ADDED from E:\Users\youse\AndroidStudioProjects\ContainesMap\clusteringlibrary\AndroidManifest.xml
+		INJECTED from E:\Users\youse\AndroidStudioProjects\ContainesMap\clusteringlibrary\AndroidManifest.xml
