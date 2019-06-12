@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.maps.android.clustering.ClusterItem;
@@ -33,24 +34,17 @@ public class ClusterRenderer extends DefaultClusterRenderer<Container> {
     }
 
     @Override
-    protected void onBeforeClusterItemRendered(Container item, MarkerOptions markerOptions) {
-        super.onBeforeClusterItemRendered(item, markerOptions);
+    protected void onBeforeClusterItemRendered(Container container, MarkerOptions markerOptions) {
+        super.onBeforeClusterItemRendered(container, markerOptions);
 
-        // Allow markers to be draggable
-        markerOptions.draggable(true);
+        if(container != null){
+            BitmapDescriptor customMarker = Utils.getCustomMarkerView(context,
+                    container.getOccupancyRate());
 
-        IconGenerator iconGenerator2 = new IconGenerator(context);
-        if(item != null){
-            String rate = item.getOccupancyRate()+"%";
-            view.setText(rate);
+            markerOptions.icon(customMarker);
+
         }
 
-        if(view.getParent() != null){
-            ((ViewGroup)view.getParent()).removeView(view);
-            iconGenerator2.setContentView(view);
-        }
-        Bitmap icon2 = iconGenerator2.makeIcon();
-        markerOptions.icon(BitmapDescriptorFactory.fromBitmap(icon2));
 
     }
 }

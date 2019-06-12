@@ -9,16 +9,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
+import io.fabric.sdk.android.Fabric;
 import yousef.joe.containersmaps.InternetConnectivity;
 import yousef.joe.containersmaps.R;
-import yousef.joe.containersmaps.ui.MapsActivity;
 
 public class SignInActivity extends AppCompatActivity {
     EditText emailEditText;
@@ -30,6 +31,7 @@ public class SignInActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_sign_in);
 
         // Get views
@@ -46,18 +48,12 @@ public class SignInActivity extends AppCompatActivity {
             }
         });
 
-        if(!InternetConnectivity.isOnline(this)){
-            noInternetTextView.setVisibility(View.VISIBLE);
-            return;
-        }
-
         // Check if the user has already logged in before
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if(currentUser != null){
             // User is already logged in
             openMapsActivity();
         }
-
 
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +62,12 @@ public class SignInActivity extends AppCompatActivity {
                 String email = emailEditText.getText().toString().trim();
                 String password = passwordEditText.getText().toString().trim();
 
-                signIn(email, password);
+                if(!email.isEmpty() && !password.isEmpty()){
+                    signIn(email, password);
+                } else {
+                    Toast.makeText(SignInActivity.this,"Please enter your email and password",
+                            Toast.LENGTH_LONG).show();
+                }
             }
         });
 
@@ -98,5 +99,19 @@ public class SignInActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MapsActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        //
+        if(!InternetConnectivity.isOnline(this)){
+            noInternetTextView.setVisibility(View.VISIBLE);
+            return;
+        } else {
+            noInternetTextView.setVisibility(View.GONE);
+        }
+
     }
 }

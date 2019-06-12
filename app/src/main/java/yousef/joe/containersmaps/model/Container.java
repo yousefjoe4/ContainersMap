@@ -1,10 +1,6 @@
 package yousef.joe.containersmaps.model;
 
-
-import android.util.Log;
-
 import com.google.maps.android.clustering.ClusterItem;
-import java.util.Date;
 
 public class Container implements ClusterItem {
 
@@ -15,15 +11,10 @@ public class Container implements ClusterItem {
     private int containerId;
     private int sensorId;
     private int containerTemp;
-    private Date date;
-
-
-
-    // Used to set dragged markers positions
-    private LatLng oldPosition;
+    private String date;
 
     public Container(double lat, double lng, int containerId, int sensorId,
-                     int occupancyRate, int containerTemp, Date date) {
+                     int occupancyRate, int containerTemp, String date) {
         this.position = new LatLng(lat, lng);
         this.containerId = containerId;
         this.sensorId = sensorId;
@@ -34,7 +25,7 @@ public class Container implements ClusterItem {
     }
 
     public Container(){
-        // Empty Constuctor required by Firebase Firestore
+        // Empty Constructor required by Firebase Firestore
 
     }
 
@@ -50,7 +41,6 @@ public class Container implements ClusterItem {
 
     @Override
     public String getTitle() {
-        Log.e(getClass().getName(),"getTitlte is called");
         return title;
     }
 
@@ -58,11 +48,6 @@ public class Container implements ClusterItem {
     @Override
     public String getSnippet() {
         return snippet;
-    }
-
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public void setSnippet(String snippet) {
@@ -85,42 +70,11 @@ public class Container implements ClusterItem {
         return containerTemp;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public LatLng getOldPosition() {
-        return oldPosition;
-    }
-
-    public void setOldPosition(LatLng oldPosition) {
-        if(this.oldPosition == null){
-            this.oldPosition = oldPosition;
-        }
-    }
-
-    public void setPosition(LatLng  position) {
-
+    public void setPosition(LatLng position) {
         this.position = position;
-    }
-
-    public void setOccupancyRate(int occupancyRate) {
-        this.occupancyRate = occupancyRate;
-    }
-
-    public void setContainerId(int containerId) {
-        this.containerId = containerId;
-    }
-
-    public void setSensorId(int sensorId) {
-        this.sensorId = sensorId;
-    }
-
-    public void setContainerTemp(int containerTemp) {
-        this.containerTemp = containerTemp;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
     }
 }

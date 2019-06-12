@@ -11,4 +11,7 @@
         Check your internet connection\n\n
         Refresh
     </string>
+    <string name="title_activity_marker_detail">Map</string>
+    <string name="change_position"> <u>Change position</u> </string>
+    <string name="unkown_error">An error has occurred</string>
 </resources>
